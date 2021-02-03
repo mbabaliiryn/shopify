@@ -15,6 +15,11 @@ The Shopify site with React, using React Context for state management, and addin
 5. Visit [http://localhost:3000/](http://localhost:3000/)
 6. Log in with either `regular@example.com` or `admin@example.com` and the password `password`.
 
+## Future Updates
+
+- Add admin and user signup.
+- Add users account api using rails
+
 ## License
 
 SitePoint's code archives and code examples are licensed under the MIT license.

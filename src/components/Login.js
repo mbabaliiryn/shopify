@@ -33,7 +33,7 @@ class Login extends Component {
       <>
         <div className="hero is-primary ">
           <div className="hero-body container">
-            <h4 className="title">Login</h4>
+            <h4 className="title">Only for the manager</h4>
           </div>
         </div>
         <br />

@@ -27,7 +27,7 @@ export default class App extends Component {
     let user = localStorage.getItem("user");
     let cart = localStorage.getItem("cart");
   
-    const products = await axios.get('http://localhost:3001/products');
+    const products = await axios.get('http://localhost:3000/api/v1/products/');
     user = user ? JSON.parse(user) : null;
     cart = cart? JSON.parse(cart) : {};
   
@@ -66,7 +66,7 @@ export default class App extends Component {
 
   async componentDidMount() {
     let user = localStorage.getItem("user");
-    const products = await axios.get('http://localhost:3001/products');
+    const products = await axios.get('http://localhost:3000/api/v1/products/');
     user = user ? JSON.parse(user) : null;
     this.setState({ user,  products: products.data });
   }
@@ -77,6 +77,7 @@ export default class App extends Component {
     this.setState({ products }, () => callback && callback());
   };
 
+  
   addToCart = cartItem => {
     let cart = this.state.cart;
     if (cart[cartItem.id]) {
@@ -117,7 +118,7 @@ export default class App extends Component {
         p.stock = p.stock - cart[p.name].amount;
   
         axios.put(
-          `http://localhost:3001/products/${p.id}`,
+          `http://localhost:3000/api/v1/products/${p.id}`,
           { ...p },
         )
       }
@@ -188,7 +189,7 @@ export default class App extends Component {
                 </Link>
                 {!this.state.user ? (
                   <Link to="/login" className="navbar-item">
-                    Login
+                    Manager
                   </Link>
                 ) : (
                   <Link to="/" onClick={this.logout} className="navbar-item">
